@@ -18,7 +18,7 @@ void dfs(int vertex)
     for (int i = 0; i < numVertices; i++) 
 	{
         if (adjMatrix[vertex][i] == 1 && !visited[i])
-		{
+	{
             dfs(i);
         }
     }
