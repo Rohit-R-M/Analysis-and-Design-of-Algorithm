@@ -11,13 +11,10 @@ int numVertices;
 
 void dfs(int vertex) 
 {
-    // Mark the current node as visited
     visited[vertex] = true;
     
-    // Print the current vertex as a character (A, B, C, ...)
     printf("%c ", 'A' + vertex);
 
-    // Recur for all the adjacent vertices that haven't been visited yet
     for (int i = 0; i < numVertices; i++) 
 	{
         if (adjMatrix[vertex][i] == 1 && !visited[i])
@@ -26,7 +23,16 @@ void dfs(int vertex)
         }
     }
 }
-
+int isconnected()
+{
+	int i;
+	for(i=0;i<numVertices;i++)
+	{
+		if(!visited[i])
+			return 0;
+	}
+	return 1;
+}
 int main() 
 {
     printf("Enter the number of vertices: ");
@@ -50,7 +56,11 @@ int main()
     // Start DFS traversal from vertex 0 (or any vertex you choose)
     printf("DFS Traversal starting from vertex A:\n");
     dfs(0);
-
+    
+    if(isconnected())
+    	printf("\nGraph is connected");
+    else
+    	printf("\nGraph is not connected");
     return 0;
 }
 /*
