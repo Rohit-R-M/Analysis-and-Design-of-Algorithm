@@ -20,7 +20,16 @@ void knapSack(int w, int wt[], int val[], int n)
       		else  
         		k[i][j]=k[i-1][j];  
     	}  
- 	}  
+ 	}
+	printf("\nKnapsack matrix:\n");  
+	for(int i=0;i<=n;i++)
+	{  
+    	for(int j=0;j<=w;j++)
+		{  
+    		printf("%d\t",k[i][j]);  
+    	}  
+    	printf("\n");  
+	}
  	printf("\nMaximum profit:%d",k[n][w]);  
 } 
 int main()
