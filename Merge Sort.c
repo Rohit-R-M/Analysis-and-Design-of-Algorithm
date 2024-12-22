@@ -5,31 +5,25 @@
 
 void merge(int arr[],int low,int mid,int high)
 {
-	int n1=mid-low+1; //length of first half
-	int n2=high-mid; //length of seconf half
-
-	int a[n1],b[n2];    //temp variables
+	int i=low,j=mid+1,k=0;
+	int temp[high-low+1];
 	
-	for(int x=0;x<n1;x++)
-		a[x] = arr[low+x];
-	for(int y=0;y<n2;y++)
-		b[y] = arr[mid+1+y];
-		
-	int i=0,j=0,k=low;
-	
-	while(i<n1 && j<n2)
+	while(i<=mid && j<= high)
 	{
-		if(a[i]<=b[j])	
-			arr[k++] = a[i++];
+		if(arr[i]<arr[j])
+			temp[k++]=arr[i++];
 		else
-		 	arr[k++] = b[j++];
+			temp[k++]=arr[j++];
 	}
 	
-	while(i<n1)
-		arr[k++] = a[i++];
-			
-	while(j<n2)
-		arr[k++] = b[j++];		
+	while(i<=mid)
+		temp[k++]=arr[i++];
+		
+	while(j<=high)
+		temp[k++]=arr[j++];
+		
+	for(i=low,k=0;i<=high;i++,k++)
+		arr[i]=temp[k];		
 	
 }
 
